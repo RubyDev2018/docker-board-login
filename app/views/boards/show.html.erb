@@ -1,0 +1,23 @@
+
+<div class="d-flex align-items-center mt-4 mb-4">
+  <div class="ml-auto boards__linkBox">
+    <%= link_to '一覧', boards_path, class: 'btn btn-outline-dark' %>
+    <%= link_to '編集', edit_board_path(@board), class: 'btn btn-outline-dark' %>
+  </div>
+</div>
+
+<% if flash[:notice]%>
+  <div class="alert alert-primary"><%= flash[:notice]%></div>
+<% end %>
+
+<!--↓簡略化  render partial: 'board', object: @board %> -->
+<%=  render partial: 'board', object: @board %>
+
+<div class="p-comment__list">
+  <div class="p-comment_listTitle">コメント</div>
+
+  <%= render @board.comments %>
+  <!-- app/views/comments/_comment.html.erbがコメントの数だけレンダリング -->
+</div>
+<!-- render partial: 'comment_form', locals: { comment: @comment}を以下のように変更 -->
+<%=  render partial: 'comments/form', locals: { comment: @comment} %>
