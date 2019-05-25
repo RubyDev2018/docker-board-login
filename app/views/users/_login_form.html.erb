@@ -1,4 +1,7 @@
 <h1>ログイン</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
 
 <%= form_with scope: :session, url: login_path do |f| %>
   <div class="form-group">
@@ -11,4 +14,3 @@
   </div>
   <%= f.submit 'ログイン', class: 'btn btn-primary' %>
 <% end %>
-

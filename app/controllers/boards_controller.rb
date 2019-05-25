@@ -2,6 +2,7 @@ class BoardsController < ApplicationController
 	# %iはシンボルの配列を定義  => [:Ruby, :Python, :PHP]
   # before_action :set_target_board, only: [:show, :edit, :update, :destroy]
   before_action :set_target_board, only: %i[show edit update destroy]
+  before_action :logged_in_user, only: %i[index show]
 
 	def index
     # @baords以下、三項演算子を使用
@@ -71,4 +72,12 @@ class BoardsController < ApplicationController
 		def set_target_board
 				@board = Board.find(params[:id])
 		end
+
+    # ログイン済みユーザーかどうか確認
+    def logged_in_user
+      unless @current_user
+      		flash[:notice ] = "ログインしてください"
+        redirect_to root_path
+      end
+    end
 end
