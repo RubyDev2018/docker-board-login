@@ -1,27 +1,7 @@
-# README
+RubyOnRailsを用いた掲示板を制作
+主な機能
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# board-login-logic
-# board-login
-# docker-board-login
+・ログイン機能
+・掲示板
+・掲示板タグ付け
+・タグの検索機能
